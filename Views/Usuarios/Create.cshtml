@@ -1,0 +1,139 @@
+@model CrudUsuarios.Models.Usuario
+
+@{
+    ViewData["Title"] = "Nuevo usuario";
+}
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-7 col-md-9">
+
+        <div class="card">
+
+            <div class="card-body p-4">
+
+                <!-- ENCABEZADO -->
+
+                <div class="d-flex align-items-center mb-4">
+
+                    <div class="brand-icon me-3"
+                         style="background:#dbeafe; color:#1d4ed8;">
+
+                        <i class="bi bi-person-plus-fill"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h1 class="page-title mb-0">
+                            Nuevo usuario
+                        </h1>
+
+                        <p class="page-subtitle mb-0">
+                            Registra un nuevo usuario en el sistema
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FORMULARIO -->
+
+                <form asp-action="Create" method="post">
+
+                    <!-- MENSAJES GENERALES -->
+
+                    <div asp-validation-summary="ModelOnly"
+                         class="alert alert-danger">
+                    </div>
+
+
+                    <!-- NOMBRE -->
+
+                    <div class="mb-4">
+
+                        <label asp-for="Nombre"
+                               class="form-label">
+
+                            <i class="bi bi-person me-1"></i>
+                            Nombre
+
+                        </label>
+
+                        <input asp-for="Nombre"
+                               class="form-control"
+                               placeholder="Ingrese el nombre del usuario" />
+
+                        <span asp-validation-for="Nombre"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+
+                    <!-- CORREO -->
+
+                    <div class="mb-4">
+
+                        <label asp-for="Correo"
+                               class="form-label">
+
+                            <i class="bi bi-envelope me-1"></i>
+                            Correo electrónico
+
+                        </label>
+
+                        <!--
+                            Se utiliza type="text" para que la validación
+                            personalizada de nuestro Controller sea la
+                            encargada de comprobar el correo.
+                        -->
+
+                        <input asp-for="Correo"
+                               class="form-control"
+                               placeholder="ejemplo@correo.com"
+                               type="text" />
+
+                        <span asp-validation-for="Correo"
+                              class="text-danger">
+                        </span>
+
+                        <small class="text-muted">
+                            Ejemplo: usuario@gmail.com
+                        </small>
+
+                    </div>
+
+
+                    <!-- BOTONES -->
+
+                    <div class="d-flex gap-2 justify-content-end mt-4">
+
+                        <a asp-action="Index"
+                           class="btn btn-secondary">
+
+                            <i class="bi bi-arrow-left me-1"></i>
+                            Cancelar
+
+                        </a>
+
+                        <button type="submit"
+                                class="btn btn-primary">
+
+                            <i class="bi bi-person-plus-fill me-1"></i>
+                            Crear usuario
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

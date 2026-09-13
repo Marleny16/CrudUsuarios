@@ -1,0 +1,35 @@
+@model Usuario
+
+@{
+    ViewData["Title"] = "Editar usuario";
+}
+
+<h1 class="h3 mb-3">Editar usuario</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="mb-3">
+                <label asp-for="Nombre" class="form-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Correo" class="form-label"></label>
+                <input asp-for="Correo" class="form-control" />
+                <span asp-validation-for="Correo" class="text-danger"></span>
+                <div class="form-text">
+                    Se vuelve a ejecutar <code>ValidadorUsuario.ValidarCorreo()</code>
+                    antes de actualizar el registro.
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+            <a asp-action="Index" class="btn btn-link">Cancelar</a>
+        </form>
+    </div>
+</div>

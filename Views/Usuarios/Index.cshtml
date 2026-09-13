@@ -1,0 +1,39 @@
+@model IEnumerable<Usuario>
+
+@{
+    ViewData["Title"] = "Usuarios";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h3 mb-0">Usuarios</h1>
+    <a asp-action="Create" class="btn btn-primary">+ Nuevo usuario</a>
+</div>
+
+<table class="table table-striped align-middle">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.Nombre)</th>
+            <th>@Html.DisplayNameFor(m => m.Correo)</th>
+            <th style="width: 220px;"></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+            <td>@Html.DisplayFor(modelItem => item.Correo)</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Ver</a>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">Editar</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger">Eliminar</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@if (!Model.Any())
+{
+    <p class="text-muted">Aún no hay usuarios registrados.</p>
+}
